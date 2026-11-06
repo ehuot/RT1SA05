@@ -29,10 +29,10 @@ install-docker:
 
 fix-dns:
 	@echo "=== Configuration des DNS (contournement du problème de DNS de VMWare) ==="
-	sudo apt install -y dnsutils
-	sudo nmcli connection modify "Wired connection 1" ipv4.dns "1.1.1.1 8.8.8.8" ipv4.ignore-auto-dns yes
-	sudo nmcli connection up "Wired connection 1"
-	sudo systemctl restart docker
+	#sudo apt install -y dnsutils
+	#sudo nmcli connection modify "Wired connection 1" ipv4.dns "1.1.1.1 8.8.8.8" ipv4.ignore-auto-dns yes
+	#sudo nmcli connection up "Wired connection 1"
+	#sudo systemctl restart docker
 
 start-env:
 	@echo "=== Lancement de l'environnement de développement ==="
