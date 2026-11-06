@@ -4,7 +4,7 @@ CONTAINER_NAME = rt1sa05
 
 .PHONY: all install-docker fix-dns start-env shell stop-env
 
-all: install-docker fix-dns
+all: install-docker fix-dns install-image
 	@echo ""
 	@echo "======================================================================"
 	@echo " INSTALLATION TERMINÉE AVEC SUCCÈS "
@@ -26,6 +26,10 @@ install-docker:
 	sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 	@echo "=== Ajout de l'utilisateur courant au groupe docker ==="
 	sudo usermod -aG docker $$USER
+
+install-image:
+	@echo "=== Allons chercher l'image Docker ==="
+	docker pull $(IMAGE_NAME)
 
 fix-dns:
 	@echo "=== Configuration des DNS (contournement du problème de DNS de VMWare) ==="
