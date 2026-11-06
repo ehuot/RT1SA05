@@ -29,7 +29,7 @@ install-docker:
 
 install-image:
 	@echo "=== Allons chercher l'image Docker ==="
-	docker pull $(IMAGE_NAME)
+	sg docker -c 'docker pull $(IMAGE_NAME)'
 
 fix-dns:
 	@echo "=== Configuration des DNS (contournement du problème de DNS de VMWare) ==="
