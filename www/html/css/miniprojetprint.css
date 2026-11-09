@@ -186,13 +186,9 @@ code, pre {
 }
 
 /* --- PIED DE PAGE ET SIGNATURE --- */
-/* Masquage de la bordure du pied de page */
+/* Masquage complet du conteneur de pied de page */
 #piedpage {
-    border: none !important;
-    background: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 0 !important;
+    display: none !important;
 }
 
 /* On masque la signature par défaut sur toutes les pages */
@@ -203,17 +199,20 @@ code, pre {
 /* MAIS on la réaffiche uniquement sur la page d'accueil (index.html) */
 body.page-home .binome {
     display: block !important;
-    text-align: center;          /* Centré sous le titre */
+    position: absolute !important;
+    top: 5.5cm !important;       /* Ajustez cette valeur pour monter/descendre le nom sous le titre */
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center;
     font-style: italic;
-    font-size: 14pt;             /* Un peu plus grand pour la page de garde */
-    color: #051C86 !important;   /* Force le bleu foncé du texte */
-    margin-top: 1cm;             /* Espacement sous le sous-titre */
-    padding: 0;
+    font-size: 14pt;
+    color: #051C86 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* On retire le soulignement du lien "mailto" sur le PDF */
 body.page-home .binome a {
     text-decoration: none !important;
-    color: inherit !important;   /* Prend la couleur bleue définie au-dessus */
+    color: inherit !important;
 }
-
