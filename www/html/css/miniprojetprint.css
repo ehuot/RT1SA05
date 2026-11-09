@@ -1,91 +1,157 @@
 @charset "UTF-8";
 
-
-
-body { /* Modifications : la couleur de fond de page - la police - l'unité utilisée pour la taille de la police  */
-  background-color :#fff;
-  font-family :Serif;
-  font-size :12pt;
+/* --- PARAMÈTRES DE LA PAGE --- */
+@page {
+    size: A4;
+    margin: 25mm;
+    
+    @bottom-center {
+        content: counter(page);
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 10pt;
+        color: #051C86; /* Bleu foncé pour la numérotation */
+    }
 }
 
-#page { /* Modifications : suppression de la bordure - marges */
-  margin :0;
-  border :none;
+/* --- TYPOGRAPHIE GLOBALE --- */
+body {
+    background-color: #ffffff;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.3;
+    color: #051C86; /* Bleu foncé de votre document */
+    margin: 0;
 }
 
-#banner, #menuright, #footer { /* Les éléments qui ne seront pas affichés  */
-  display :none;
+/* --- MASQUAGE DES ÉLÉMENTS WEB --- */
+.menu, #nav, #modif, #intitulepage, #bandeaulogo, .web-only {
+    display: none !important;
 }
 
-#bandeautitre { /* Affichage du titre */
-  font-weight:bold;
-  margin:0;
-  margin-top: 3cm;
-  padding:0;
-  text-indent:0;
-  line-height: 30pt;
-  font-size: 200%;
+.print-only {
+    display: block !important;
 }
 
-h2, h3, #conteneurgal, #corpsdepage{ /* Modification de la couleur des titres et liens */
-  color :#000;
+/* --- EN-TÊTE --- */
+#bandeau {
+    background: none;
+    border: none;
+    height: auto;
+    margin-bottom: 1.5cm;
+    text-align: left;
 }
 
+#bandeautitre {
+    color: #2FACD7; /* Bleu turquoise */
+    font-size: 18pt;
+    font-weight: bold;
+    position: static;
+    width: auto;
+    line-height: 1.3;
+}
 
+/* --- TITRES (Turquoise et soulignés) --- */
+h1 {
+    color: #2FACD7;
+    font-size: 16pt;
+    font-weight: bold;
+    margin-top: 24pt;
+    margin-bottom: 12pt;
+    border-bottom: 2px solid #2FACD7; /* Grand trait */
+    page-break-after: avoid;
+}
+
+h2 {
+    color: #2FACD7;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 18pt;
+    margin-bottom: 8pt;
+    border-bottom: 1px solid #2FACD7; /* Trait classique */
+    page-break-after: avoid;
+}
+
+h3 {
+    color: #2FACD7;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+    page-break-after: avoid;
+}
+
+/* --- PARAGRAPHES ET TEXTE --- */
+p {
+    text-align: justify;
+    margin-bottom: 10pt;
+    hyphens: auto;
+}
 
 a {
-	color: #000; 
-	text-decoration: none;
+    color: #5F8000; /* Le vert de vos liens d'origine */
+    text-decoration: underline;
 }
 
-
-/* Pour le texte des commandes ou des noms de fichier */
-.verbose {
-	font-family: Courier;
+/* --- LISTES --- */
+ul, ol {
+    margin-top: 5pt;
+    margin-bottom: 10pt;
+    padding-left: 20pt;
+    text-align: justify;
 }
 
-.english {
-	font-style: italic;
+/* --- CODE SOURCE ET TERMINAL --- */
+div.example, div.bash, div.exampleexec {
+    background-color: #f8f8f8;
+    border: 1px solid #cccccc;
+    padding: 10pt;
+    margin: 12pt 0;
+    font-family: Consolas, "Courier New", monospace; /* Consolas exigé */
+    font-size: 9.5pt;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    page-break-inside: avoid;
 }
 
-/* pour les figures */
+/* On laisse WeasyPrint utiliser les couleurs de syntaxe définies dans votre HTML */
+code, pre {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 9.5pt;
+}
+
+/* --- FIGURES ET IMAGES --- */
 .figure {
-	text-align: center;
+    text-align: center;
+    margin: 15pt 0;
+    page-break-inside: avoid;
 }
 
-/* Pour les légendes */
+.figure img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
 .legende {
-	font-family: Arial, sans-serif;
-	font-style: italic;
-	font-weight: bold;
-	text-align: center;
+    font-style: italic;
+    font-size: 10pt;
+    margin-top: 6pt;
 }
 
-.lignedecalee {
-	list-style: none;
+/* --- PIED DE PAGE --- */
+#piedpage {
+    border-top: none;
+    background: none;
+    height: auto;
+    margin-top: 1cm;
 }
 
-
-
-/* Emplacement pour le mailto webmaster */
-.binome { 
-	position: absolute;
-  top: 1cm;
-  font-weight: bold;
-  font-size: 150%;
-}
-
-
-
-.menu, #nav, #modif, #intitulepage {
-	display: none;
-}
-	 
-
-
-.web-only { 
-    display: none !important; 
-}
-.print-only { 
-    display: block !important; 
+.binome {
+    position: static;
+    text-align: right;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 10pt;
+    margin: 0;
+    padding: 0;
 }
