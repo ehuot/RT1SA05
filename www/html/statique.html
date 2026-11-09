@@ -234,14 +234,20 @@
 			<code>/usr/lib/cgi-bin/versionstatique</code>  
 			It is used here with its default interface (web). 
 			  <center>
-			  <div class="figure">
-				<iframe src="../cgi-bin/versionstatique" width=430 height=350>
-					IFRAME tags do not work with this browser.
-				</iframe>
-				<div class="legende">
-					Figure 4: Execution of the static version (web display).
+				<div class="figure">
+				<!-- Visible uniquement dans le navigateur web -->
+					<div class="web-only">
+						<iframe src="../cgi-bin/versionstatique" width="430" height="350"></iframe>
+					</div>
+					<!-- Visible uniquement dans le PDF généré -->
+					<div class="print-only">
+						<img src="img/capture_web_statique.png" width="430" height="350" />
+					</div>
+					
+					<div class="legende">
+						Figure 4: Execution of the static version (web display).
+					</div>
 				</div>
-			  </div>
 			  </center>
 			</p>
 			<h2>Running the static graphical version</h2>
