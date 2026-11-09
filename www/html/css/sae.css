@@ -1,0 +1,226 @@
+@charset "UTF-8";
+
+/* --- VARIABLES DE COULEURS --- */
+:root {
+    --text-main: #334155;      /* Gris ardoise très lisible pour le texte */
+    --heading: #051C86;        /* Votre bleu foncé d'origine (Cohérence PDF) */
+    --accent: #2FACD7;         /* Votre turquoise d'origine (Cohérence PDF) */
+    --bg-code: #1e293b;        /* Fond très sombre pour le code (style IDE) */
+    --text-code: #f8fafc;      /* Texte clair pour le code */
+    --divider: #e2e8f0;        /* Gris très clair pour les séparateurs */
+}
+
+/* --- TYPOGRAPHIE ET FOND --- */
+body {
+    background-color: #ffffff; /* Fini le fond gris, on respire */
+    /* Typographie native ultra-nette selon l'OS (Mac, Windows, Linux) */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Le conteneur n'est plus une "boîte", il centre juste élégamment la lecture */
+#conteneurgal {
+    max-width: 800px; /* Largeur de lecture optimale (pas trop large) */
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* --- EN-TÊTE --- */
+#bandeau {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 2rem;
+}
+
+#bandeautitre {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+}
+
+#bandeaulogo {
+    width: 140px;
+    height: 60px;
+    background: url("../img/logouvsq.png") no-repeat right center;
+    background-size: contain;
+}
+
+/* --- NAVIGATION (Style "Onglets Minimalistes") --- */
+#nav {
+    margin-bottom: 4rem;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #64748b;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.menu a:hover {
+    color: var(--heading);
+    border-bottom: 2px solid var(--accent); /* Joli soulignement au survol */
+}
+
+/* --- TITRES --- */
+#intitulepage h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--heading);
+    letter-spacing: -0.02em;
+    margin: 0 0 2rem 0;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--heading);
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* La touche moderne : un trait turquoise court sous les H2 */
+h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: var(--accent);
+    margin-top: 0.7rem;
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.25rem;
+    color: var(--heading);
+    margin-top: 2rem;
+}
+
+/* --- LIENS ET TEXTE --- */
+p, li {
+    text-align: left; /* Plus lisible sur écran que le texte justifié */
+}
+
+p { margin-bottom: 1.5rem; }
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* --- CODE ET TERMINAL (Style sombre IDE) --- */
+div.example, div.bash, div.exampleexec {
+    background-color: var(--bg-code);
+    color: var(--text-code);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    overflow-x: auto; /* Indispensable pour smartphone */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* On force les couleurs en ligne de votre HTML à rester lisibles sur fond noir */
+div.bash span[style*="color:#21AE00"] { color: #4ade80 !important; }
+div.bash span[style*="color:blue"] { color: #60a5fa !important; }
+
+code, pre {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 0.9em;
+}
+
+/* --- FIGURES --- */
+.figure {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.figure img, .figure iframe {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--divider);
+}
+
+.legende {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* --- PIED DE PAGE --- */
+#modif {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--divider);
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+#piedpage {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+#piedpage .binome a {
+    color: var(--heading);
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* --- GESTION IMPRESSION/WEB --- */
+.print-only { display: none !important; }
+.web-only { display: block !important; }
+
+/* =========================================================
+   MODE RESPONSIVE (SMARTPHONES ET PETITES TABLETTES)
+   ========================================================= */
+@media (max-width: 768px) {
+    #conteneurgal {
+        padding: 2rem 1.5rem; /* Marges réduites sur mobile */
+    }
+
+    #bandeau {
+        flex-direction: column-reverse; /* Empile le logo au-dessus du texte */
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    #bandeaulogo {
+        background-position: center;
+    }
+
+    #intitulepage h1 {
+        font-size: 2.2rem;
+    }
+
+    .menu {
+        justify-content: center;
+    }
+}

@@ -4,13 +4,6 @@
 @page {
     size: A4;
     margin: 25mm;
-    
-    @bottom-center {
-        content: counter(page);
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: 10pt;
-        color: #051C86; /* Bleu foncé pour la numérotation */
-    }
 }
 
 /* --- TYPOGRAPHIE GLOBALE --- */
@@ -186,33 +179,19 @@ code, pre {
 }
 
 /* --- PIED DE PAGE ET SIGNATURE --- */
-/* Masquage complet du conteneur de pied de page */
-#piedpage {
+/* 1. On masque totalement le pied de page et la signature du bas pour tout le PDF */
+#piedpage, .binome {
     display: none !important;
 }
 
-/* On masque la signature par défaut sur toutes les pages */
-.binome {
-    display: none !important;
-}
-
-/* MAIS on la réaffiche uniquement sur la page d'accueil (index.html) */
-body.page-home .binome {
-    display: block !important;
-    position: absolute !important;
-    top: 5.5cm !important;       /* Ajustez cette valeur pour monter/descendre le nom sous le titre */
-    left: 0 !important;
-    right: 0 !important;
-    text-align: center;
+/* 2. On injecte votre nom artificiellement juste en dessous du grand titre de l'accueil */
+body.page-home #bandeautitre::after {
+    content: "\A E. Huot";  /* Le \A force un saut de ligne virtuel en CSS */
+    white-space: pre;       /* Indispensable pour que le saut de ligne fonctionne */
+    display: block;
     font-style: italic;
+    font-weight: normal;
     font-size: 14pt;
-    color: #051C86 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* On retire le soulignement du lien "mailto" sur le PDF */
-body.page-home .binome a {
-    text-decoration: none !important;
-    color: inherit !important;
+    color: #051C86;
+    margin-top: 15pt;
 }

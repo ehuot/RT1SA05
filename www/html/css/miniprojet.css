@@ -155,6 +155,8 @@ hr {
 #nav {
 	clear: both; 
 	height: 30px;
+	position: relative;
+	z-index: 10;
 }
 
 
