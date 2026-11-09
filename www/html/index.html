@@ -8,7 +8,7 @@
 	media="print" />
 <title>SAE prog_(RT1SA05)</title>
 </head>
-<body>
+<body class="page-home">
 	<div id="conteneurgal">
 		<div id="bandeau">
 			<div id="bandeautitre">
@@ -23,14 +23,13 @@
 
 		<div id="nav">
 			<div class="menu">
-				<div class="menu">
 					<a href="index.html">home</a> 
 					<a href="sujet.html">subject</a>
 					<a href="logs.html">logs</a>
 					<a href="cgi-bin.html">cgi-bin</a>
 					<a href="statique.html">static</a>
 					<a href="soumission.html">submission</a>
-				</div>
+					<a href="bibliographie.html">bibliography</a>
 			</div>
 		</div>
 		<div id="corpsdepage">
@@ -59,16 +58,23 @@
 		</p> 
 		<h2>Tools</h2>
 		<p>
-		To realize this SAÉ you will work under Linux using exclusively the virtual machine that you will find on the eCampus space SAE prog_(RT1SA05), file <code>SAE15_Debian11_64bits.ova</code>. 
-		
-To realize this SAÉ you will work under Linux using exclusively the virtual machine that you will
-find on the eCampus space SAE prog_(RT1SA05), file <code>SAE15_Debian11_64bits.ova</code> or if you
-are running an ARM architecture (typically on Apple Silicon based Macintosh)
-<code>SAE15_Debian11_ARM64bits.ova</code>
+			To realize this SAÉ you will work under Linux using exclusively the virtual machine 
+			(VM) available on eCampus.
 		</p>
-<p>
-If you have not already done so, install VirtualBox on your host machine. The provided virtual machine is small enough to fit on a 4GB USB stick. Download it, copy it to a directory on your host machine where you have write access. Then in Virtual Box, proceed as follow: File menu > Import appliance > select the file <code>SAE15_Debian11_64bits.ova</code>.
-</p>
+		<p>
+			If you have not already done so, install VirtualBox or VMWare on your host machine. 
+			The provided virtual machine is small enough to fit on a 16GB USB stick. 
+			Download it, copy it to a directory on your host machine where you have write access. 
+		</p>
+		<p>		
+			Look for the VM on eCampus (either on the SAE dedicated space RT1SA05 or on the one 
+			corresponding to the ressource RT1R07),
+			file <code>VirtualDebian13.ova</code> for VirtualBox, <code>VirtualDebian13_OVF.zip</code> 
+			for VMWare Workstation or VMWare Fusion on an Intel Macintosh, 
+			<code>VirtualDebian13_ARM_OVF.zip</code> if you
+			are running an ARM architecture (typically on Apple Silicon based Macintosh).
+		</p>
+
 <p>
 The Apache web server is already installed and configured to accept CGI. The Apache configurations are standard: the root of the site is <code>/var/www/html/</code>, the CGI directory is <code>/usr/lib/cgi-bin/</code> (to write access to these two directories you will have to use the sudo command).</p>
 
@@ -77,10 +83,11 @@ In the same location on eCampus, you will find the files <code>RT1SA05-2025.tgz<
 virtual machine, retrieve this file (it is usually downloaded in the ~/Téléchargement
 directory) and place it in /home/etudiant. Then, open a command terminal and do:
 			<div class="bash"><code>
-			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~</span>$ tar xvf RT1SA05-2025.tgz  <br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~</span>$ sudo apt install git <br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~</span>$ git clone http://github.com/ehuot/RT1SA05   <br />
 			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~</span>$ cd RT1SA05/ <br />
 			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~/RT1SA05</span>$ make install<br />
-			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~/RT1SA05</span>$ firefox "http://127.0.0.1/index.html"<br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~/RT1SA05</span>$ firefox "http://127.0.0.1"<br />
 			</code></div> 
 		</p>
 		<p>
@@ -143,7 +150,7 @@ directory) and place it in /home/etudiant. Then, open a command terminal and do:
 	  
 		</div> <!-- FIN du corpsdepage -->
 		
-		<div id="modif">Last update: Nov 3th, 2025</div>
+		<div id="modif">Last update: Nov 9th, 2026</div>
 		<div id="piedpage">
 			<div class="binome">
 				<a href="mailto:Etienne.Huot@uvsq.fr">E. Huot</a>

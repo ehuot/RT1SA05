@@ -24,12 +24,51 @@ body {
 }
 
 /* --- MASQUAGE DES ÉLÉMENTS WEB --- */
+/*
 .menu, #nav, #modif, #intitulepage, #bandeaulogo, .web-only {
+    display: none !important;
+}
+*/
+.menu, #nav, #modif, .web-only {
     display: none !important;
 }
 
 .print-only {
     display: block !important;
+}
+
+/* --- PAGE DE GARDE (index.html uniquement) --- */
+body.page-home #bandeau {
+    display: block !important;
+    background: none;
+    border: none;
+    height: auto;
+    margin-bottom: 2cm;
+    text-align: center; /* Centre le logo et le titre */
+}
+
+/* On cache le titre "Home" sur la page de garde */
+body.page-home #intitulepage {
+    display: none !important;
+}
+
+/* Injection du logo au-dessus du grand titre */
+body.page-home #bandeaulogo {
+    display: block !important;
+    position: static !important; /* Annule la position absolue du mode web */
+    margin: 0 auto 1cm auto;     /* Centré avec un bel espace en dessous */
+    width: 220px;                /* Taille de l'image */
+    /* WeasyPrint permet de transformer la div vide en vraie image PDF : */
+    content: url("../img/logouvsq.png"); 
+}
+
+body.page-home #bandeautitre {
+    color: #2FACD7;
+    font-size: 22pt;
+    font-weight: bold;
+    position: static;
+    width: auto;
+    line-height: 1.3;
 }
 
 /* --- EN-TÊTE --- */
