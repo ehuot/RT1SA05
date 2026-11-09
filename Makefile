@@ -51,6 +51,19 @@ install-html:
 	@sudo chown -R www-data:www-data $(HTMLDIR)
 	@echo "Décompression et copie du fichier de log..." 
 	@zcat log/access.log.big.gz | sudo tee $(LOGDIR)/access.log > /dev/null
+
+pdf:
+	weasyprint www/html/index.html 1.pdf
+	weasyprint www/html/sujet.html 2.pdf
+	weasyprint www/html/logs.html 3.pdf
+	weasyprint www/html/cgi-bin.html 4.pdf
+	weasyprint www/html/statique.html 5.pdf
+	weasyprint www/html/soumission.html 6.pdf
+	weasyprint www/html/bibliographie.html 7.pdf
+	pdfunite 1.pdf 2.pdf 3.pdf 4.pdf 5.pdf 6.pdf 7.pdf compterendu/sujet_en.pdf
+	rm -f 1.pdf 2.pdf 3.pdf 4.pdf 5.pdf 6.pdf 7.pdf
+	@echo "Génération de sujet_en.pdf terminée."
+
 clean: 
 	@echo "Nettoyage de l'installation système..."
 	@sudo rm -rf $(WWWDIR)/*
