@@ -106,7 +106,7 @@ div.example, div.bash, div.exampleexec {
     border: 1px solid #cccccc;
     padding: 10pt;
     margin: 12pt 0;
-    font-family: Consolas, "Courier New", monospace; /* Consolas exigé */
+    font-family: Consolas, Menlo, 'Lucida Sans Unicode', sans-serif monospace; /* Consolas exigé */
     font-size: 9.5pt;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -115,7 +115,7 @@ div.example, div.bash, div.exampleexec {
 
 /* On laisse WeasyPrint utiliser les couleurs de syntaxe définies dans votre HTML */
 code, pre {
-    font-family: Consolas, "Courier New", monospace;
+    font-family: Consolas, monospace;
     font-size: 9.5pt;
 }
 
