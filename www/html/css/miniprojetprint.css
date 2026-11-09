@@ -166,20 +166,54 @@ code, pre {
     margin-top: 6pt;
 }
 
-/* --- PIED DE PAGE --- */
-#piedpage {
-    border-top: none;
-    background: none;
-    height: auto;
-    margin-top: 1cm;
+/* --- FIGURES ET IMAGES --- */
+.figure {
+    text-align: center;
+    margin: 15pt 0;
+    page-break-inside: avoid;
 }
 
-.binome {
-    position: static;
-    text-align: right;
-    font-weight: normal;
+.figure img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+.legende {
     font-style: italic;
     font-size: 10pt;
-    margin: 0;
+    margin-top: 6pt;
+}
+
+/* --- PIED DE PAGE ET SIGNATURE --- */
+/* Masquage de la bordure du pied de page */
+#piedpage {
+    border: none !important;
+    background: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+}
+
+/* On masque la signature par défaut sur toutes les pages */
+.binome {
+    display: none !important;
+}
+
+/* MAIS on la réaffiche uniquement sur la page d'accueil (index.html) */
+body.page-home .binome {
+    display: block !important;
+    text-align: center;          /* Centré sous le titre */
+    font-style: italic;
+    font-size: 14pt;             /* Un peu plus grand pour la page de garde */
+    color: #051C86 !important;   /* Force le bleu foncé du texte */
+    margin-top: 1cm;             /* Espacement sous le sous-titre */
     padding: 0;
 }
+
+/* On retire le soulignement du lien "mailto" sur le PDF */
+body.page-home .binome a {
+    text-decoration: none !important;
+    color: inherit !important;   /* Prend la couleur bleue définie au-dessus */
+}
+
