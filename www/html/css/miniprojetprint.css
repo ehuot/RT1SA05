@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+body { /* Modifications : la couleur de fond de page - la police - l'unité utilisée pour la taille de la police  */
+  background-color :#fff;
+  font-family :Serif;
+  font-size :12pt;
+}
+
+#page { /* Modifications : suppression de la bordure - marges */
+  margin :0;
+  border :none;
+}
+
+#banner, #menuright, #footer { /* Les éléments qui ne seront pas affichés  */
+  display :none;
+}
+
+#bandeautitre { /* Affichage du titre */
+  font-weight:bold;
+  margin:0;
+  margin-top: 3cm;
+  padding:0;
+  text-indent:0;
+  line-height: 30pt;
+  font-size: 200%;
+}
+
+h2, h3, #conteneurgal, #corpsdepage{ /* Modification de la couleur des titres et liens */
+  color :#000;
+}
+
+
+
+a {
+	color: #000; 
+	text-decoration: none;
+}
+
+
+/* Pour le texte des commandes ou des noms de fichier */
+.verbose {
+	font-family: Courier;
+}
+
+.english {
+	font-style: italic;
+}
+
+/* pour les figures */
+.figure {
+	text-align: center;
+}
+
+/* Pour les légendes */
+.legende {
+	font-family: Arial, sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	text-align: center;
+}
+
+.lignedecalee {
+	list-style: none;
+}
+
+
+
+/* Emplacement pour le mailto webmaster */
+.binome { 
+	position: absolute;
+  top: 1cm;
+  font-weight: bold;
+  font-size: 150%;
+}
+
+
+
+.menu, #nav, #modif, #intitulepage {
+	display: none;
+}
+	 
+
+

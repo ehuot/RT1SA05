@@ -1,0 +1,178 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/miniprojet.css" type="text/css" 
+	media="screen" />
+<link rel="stylesheet" href="css/miniprojetprint.css" type="text/css" 
+	media="print" />
+<title>SAE prog_(RT1SA05)</title>
+</head>
+<body>
+	<div id="conteneurgal">
+		<div id="bandeau">
+			<div id="bandeautitre">
+				SAE prog_(RT1SA05) -- Data Processing <br />
+				Connection statistics of a web server
+			</div>
+			<div id="bandeaulogo"></div>
+		</div>
+		<div id="intitulepage">
+			<h1>Subject</h1>
+		</div>
+
+		<div id="nav">
+			<div class="menu">
+				<div class="menu">
+					<a href="index.html">home</a> 
+					<a href="sujet.html">subject</a>
+					<a href="logs.html">logs</a>
+					<a href="cgi-bin.html">cgi-bin</a>
+					<a href="statique.html">static</a>
+					<a href="soumission.html">submission</a>
+				</div>
+			</div>
+		</div>
+		<div id="corpsdepage">
+
+			<h2>Context</h2>
+			<p>
+			You are a web master and system administrator, and you are asked to create 
+			a program that allows you to make some simple statistical calculations on 
+			the connections to this site. The results of these calculations must be 
+			able to be visualized either <i>via</i> a display in text mode, or <i>via</i> a graphical 
+			interface proposing a representation in histogram, or via a specialized 
+			page of the site. You have to write a program, in C language, performing the 
+			calculations based on the file <code>/var/log/apache2/access.log</code> summarizing the 
+			trace of all the connections to the site and proposing the three user interfaces.
+			</p>
+			
+			<h2>Todo tasks</h2>
+			<p>
+				Your program must necessarily analyze the contents of the file 
+				<code>/var/log/apache2/access.log</code> and visualize:
+				<ul>
+				  <li>The total amount of requests recorded since the date of the 
+				  first connection (each line of the log file corresponds to one request).</li>
+				  <li>A monthly distribution of these requests.</li>
+				</ul>
+			<i>Bonus:</i> you can propose other types of statistics 
+			(for example: the three most frequently used browsers). 
+            </p>
+            
+            <p>
+				Your program must necessarily offer three operating modes corresponding 
+				to the three types of interfaces listed below: 
+				<dl>
+				  <dt>web (default interface). </dt>
+				  <dd>The program behaves like a CGI. Installed in the 
+				  <code>/usr/lib/cgi-bin</code> directory. It generates HTML code and allows 
+				    to visualize the monthly distribution of requests in the form of a histogram.
+				  </dd>
+				  
+				  <dt>graphic (<code>-gr</code> option).</dt>
+				  <dd>The program opens a graphical window and displays the information. 
+				     The monthly distribution of requests is visualized in the form of a histogram.
+				  </dd>
+				  
+				  <dt>text (<code>-txt</code> option).</dt>
+				  <dd>The program displays the results as text in the terminal.</dd>
+				</dl>
+            </p>
+            <h2>Work to be done and submitted</h2>
+            <p>
+				You must provide a Proof of Concept (PoC) of your website, containing of course your program (compilable and executable) as well as all the files necessary for its use. All your files will be compressed in a <code>.tgz</code> archive file  
+				(see <a href="soumission.html">submission</a>).
+			</p>
+			<p>This archive file will contain:</p>
+			<ol>
+				<li>
+					In the <code>RT1SA05/compterendu</code> directory, your report 
+					in PDF format (a .pdf, no other format accepted). This file 
+					will include the algorithms (you will explain why you chose 
+					this or that data structure and present your algorithms in 
+					French in a simple pseudo-language), the listings of your 
+					source codes (<b>YES</b> it is mandatory to put your source 
+					codes both in the report and – of course – in the <code>src</code> directory), 
+					examples of execution traces (screen shots).  
+				</li>
+				<li>The HTML and CSS files needed to visualize the web interface.</li>
+				<li>All your <code>.c</code> and <code>.h</code> source files that 
+				will be placed in the <code>RT1SA05/src/</code> directory. 
+			</li>
+			<li>A <code>Makefile</code> allowing to compile (by a call to the <code>make</code> command) 
+			and to install (<code>make install</code>) your program in <code>/usr/lib/cgi-bin/</code>
+			and the <code>HTML/CSS</code> files in <code>/var/www/html/</code>. 
+			</li>
+			</ol>
+			
+			<h2>Tip list</h2>
+			<p>
+			The subject is not difficult but it is long and has some deliberately 
+			technical points. I do advice you to:
+			<ol>
+				<li>Start working on a sheet of paper and analyzing the <code>access.log</code> 
+				file by yourself.</li>
+				<li>Decompose your program into subprograms using top-down analysis.</li>
+				<li>Define the data structure(s) to be used at each step.</li>
+				<li>Test each step independently.</li>
+			</ol>
+			Keep it simple before you make it complex. Do not submit a program where you 
+			have thought of everything but that does not work. Prefer to propose a 
+			program that works but does not have all the functionalities you have been 
+			asked for.			
+			</p>
+		
+		<h2>Notation</h2>
+			<p>
+Everything that is requested is evaluated (the filenames, their location, the respect of the submission guidelines, the presence of a <code>Makefile</code> and its behaviour, the functionalities, <i>etc</i>). </p>
+
+<p>Approximately the grade will be split into three large and equal parts: theory (mainly algorithmic), program and other.</p>
+
+<p>Failure to comply with an instruction resulting in the impossibility of correcting all or part of your work will result in a zero. </p>
+
+<p>To evaluate your work we will start from the virtual machine that has been provided, download your last submission, type the command sequence:</p>
+
+
+			<div class="bash"><code>
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~</span>$ tar xvf <i>binome1binome2</i>.tgz <br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~</span>$ cd RT1SA05/src <br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~/RT1SA05/src</span>$ make<br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~/RT1SA05/src</span>$ make install<br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~/RT1SA05/src</span>$ ./versiondynamique -txt<br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~/RT1SA05/src</span>$ ./versiondynamique -gr<br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~/RT1SA05/src</span>$ cd ..<br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~/RT1SA05</span>$ evince compterendu/*.pdf <br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~/RT1SA05</span>$ firefox "http://127.0.0.1"<br />
+			</code></div> 
+			and check that everything is consistent and works properly.
+			</p>
+		<h2>Bibliography</h2>
+		<div class="biblio">
+			<ol>
+				<li> E. Huot <a target="_blank"
+					href="https://drive.google.com/file/d/1-h0w5JlhxuOz00gZHp354OTdZxnT3jDS/view?usp=sharing">Fondamentaux de la programmation</a>. Langage C. 
+					Polycopié de la ressource R107. IUT de Vélizy, Université de Versailles - Saint-Quentin-en-Yvelines, Université Paris-Saclay.</li>
+			<li> Wikilivre <a target="_blank"
+					href="http://fr.wikibooks.org/wiki/Programmation_C">Programmation C</a>.</li>
+				<li> B. Kernighan, D. Ritchie  <a target="_blank"
+					href="https://www.amazon.fr/langage-2e-%C3%A9d-Norme-ANSI/dp/2100715771">Le langage C - 2e éd - Norme ANSI</a>. Dunod, 2014.</li>
+					
+				<li> Wikipedia <a target="_blank"
+					href="https://fr.wikipedia.org/wiki/Make">make</a>.</li>
+			</ol>
+		</div> <!-- FIN biblio -->
+
+		</div> <!-- FIN du corpsdepage -->
+		
+		<div id="modif">Last update: Nov 3th, 2025</div>
+		<div id="piedpage">
+			<div class="binome">
+				<a href="mailto:Etienne.Huot@uvsq.fr">E. Huot</a>
+			</div>
+		</div>
+	</div>
+	<!-- FIN du conteneurgal -->
+</body>
+</html>

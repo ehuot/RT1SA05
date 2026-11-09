@@ -1,0 +1,44 @@
+/* Cadre contenant le bandeau UVSQ */
+#bandeau {
+	clear: both; 
+	padding: 0px; 
+	background: url(../img/bandeau.jpg);
+	margin: 0px; 
+	width: 100%; 
+	height: 120px;
+	border-bottom: #000000 1px solid; 
+}
+
+#bandeau:after {
+  content: ""; /* Important, sinon l'élément n'est pas généré. */
+  display: table;
+  clear: both;
+}
+
+#bandeautitre {
+   position: absolute;
+   padding: none;
+   top:20pt;
+   left: 10pt;
+   width: 480pt;
+   color: #dddddd;
+   font-family: Arial, serif;
+   font-style:normal;
+   font-weight:100;
+   font-size: 20pt;
+}
+
+#bandeaulogo {
+  position: absolute;	
+  background-image: url(../img/logouvsq.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  top:5pt;
+  left: 500pt;
+  width: 220px;
+  height: 220px;
+}
+
+
+
+

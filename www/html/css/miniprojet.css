@@ -1,0 +1,259 @@
+@charset "UTF-8";
+@import url('bandeau.css');
+@import url('cv.css');
+
+a {
+	color: #5F8000; 
+	text-decoration: none;
+}
+a:hover {
+	color:  #FF8000;
+	text-decoration: underline;
+}
+body {
+	background-color: #999999;
+	max-width:900px;
+}
+ 
+h1 {
+	color:  #2FACD7;
+	padding-right: 12px;
+	margin-top: 12px;
+	font-size: 160%;
+	margin-bottom: 10px;
+	border-bottom: 1px dashed #028181;
+	font-family: Arial, sans-serif;
+}
+
+h2 {
+	color:  #2FACD7;
+	padding-right: 8px;
+	margin-top: 12px;
+	font-size: 120%;
+	margin-bottom: 6px;
+	border-bottom: 1px dashed #028181;
+	font-family: Arial, sans-serif;
+}
+
+h3 {
+	color:  #2FACD7;
+	padding-right: 8px;
+	margin-top: 12px;
+	font-size: 100%;
+	margin-bottom: 6px;
+	font-family: Arial, sans-serif;
+}
+
+
+p {
+	color: #051C86;
+	margin: 12px 0px 12px 0px;
+	font-family: Arial, sans-serif;
+}
+
+hr {
+	visibility: hidden;
+	clear: both;
+}
+
+/* Pour le texte des commandes ou des noms de fichier */
+.verbose {
+	font-family: Courier;
+}
+
+.english {
+	font-style: italic;
+}
+
+/* pour les figures */
+.figure {
+	text-align: center;
+	display: table-cell;
+}
+
+/* Pour les légendes */
+.legende {
+	font-family: Arial, sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	text-align: center;
+}
+
+.lignedecalee {
+	list-style: none;
+}
+
+
+/* Cadre contenant tout l'affichage */
+#conteneurgal {
+	width: 900px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #ffffff;
+	border: #000000 1px solid;
+}
+
+
+/* Cadre contenant le pied de page */
+#piedpage {	
+	clear: both;
+	padding: 0;
+	margin: 0px;
+	border-top: #000000 1px solid;
+	width: 100%;
+	height: 95px;
+	color: #FF8000;
+	font-family: Arial, sans-serif;
+	background: url(img/logoRT.jpg) no-repeat; 
+}
+
+
+
+/* Cadre contenant la date de dernière modification */
+#modif {
+	clear: both;
+	color: #594FBF;
+	padding-right: 0px;
+	padding-left: 10px;
+	margin: 0px;
+	padding-top: 23px;
+	padding-bottom: 3px;
+	height: 20px;
+	font-family: Arial, serif;
+}
+
+/* Cadre contenant les textes et les menus */
+#corpsdepage {
+	clear: both;
+	color: #051C86;
+	padding-right: 10px;
+	padding-left: 10px;
+	background-color: #ffffff;
+	margin: 0px;
+	font-family: Arial, serif;
+	min-height: 450px;
+	width: 840px; 
+}
+
+
+/* Emplacement pour le mailto webmaster */
+.binome { 
+	display: block; 
+  padding: 20px;
+	width: 110px; 
+	height: 35px; 
+	margin-left: 800px;
+}
+
+.binome a {
+	display: block;
+}
+
+
+#nav {
+	clear: both; 
+	height: 30px;
+}
+
+
+.bibio ol {
+  counter-reset: cptbiblio;
+  list-style-type: none;
+}
+.biblio ol > li {
+  position:relative;
+  list-style:none;
+  counter-increment:cptbiblio;
+}
+.biblio ol > li:before {
+  content:"[" counter(cptbiblio) "]";
+  color: #5F8000; 
+
+  position:absolute;
+  top:-2px;
+  left:-24px;
+  width:21px;
+
+
+}
+
+
+.menu a {
+     margin: 0 2px;
+     width: 100px; 
+     height: 20px;
+     float: left;
+     display: block;
+     text-align: center;
+     border: 1px solid gray;
+     text-decoration: none;
+     color: #666666;
+     background: #fff;
+	 font-family: Arial, sans-serif;
+     }
+	 
+.menu a:hover {
+     background: #b4dc14;
+     border: 1px solid gray;
+	 color: #fff;
+	 font-family: Arial, sans-serif;
+     }
+
+.menu a:active {
+     background: green;
+     border: 1px solid gray;
+     color: #fff;
+     font-family: Arial, sans-serif;
+}
+
+div.exampleexec {
+    border: 1px solid black;
+    background-color: #ffffff;
+    color: #0000;
+    padding: 0.5em;
+    margin: 1em 2em 1em 1em;
+}
+
+div.exampleexec p {
+    line-height: 1em;
+}
+
+div.exampleexec p, div.example pre, div.example table {
+    padding: 0;
+    margin: 0;
+}
+
+
+div.example {
+    background-color: #e5e5e5;
+    color: #000;
+    padding: 0.5em;
+    margin: 1em 2em 1em 1em;
+}
+
+div.example p {
+    line-height: 1em;
+}
+
+div.example p, div.example pre, div.example table {
+    padding: 0;
+    margin: 0;
+}
+
+div.bash {
+    background-color: #000000;
+    color: #D5DBDB;
+    padding: 0.5em;
+    margin: 1em 2em 1em 1em;
+}
+
+div.bash p {
+    line-height: 1em;
+    color: #D5DBDB;
+}
+
+div.bash p, div.bash pre, div.bash table {
+    padding: 0;
+    margin: 0;
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/miniprojet.css" type="text/css" 
+	media="screen" />
+<link rel="stylesheet" href="css/miniprojetprint.css" type="text/css" 
+	media="print" />
+<title>SAE prog_(RT1SA05)</title>
+</head>
+<body>
+	<div id="conteneurgal">
+		<div id="bandeau">
+			<div id="bandeautitre">
+				SAE prog_(RT1SA05) -- Data Processing <br />
+				Connection statistics of a web server
+			</div>
+			<div id="bandeaulogo"></div>
+		</div>
+		<div id="intitulepage">
+			<h1>Home</h1>
+		</div>
+
+		<div id="nav">
+			<div class="menu">
+				<div class="menu">
+					<a href="index.html">home</a> 
+					<a href="sujet.html">subject</a>
+					<a href="logs.html">logs</a>
+					<a href="cgi-bin.html">cgi-bin</a>
+					<a href="statique.html">static</a>
+					<a href="soumission.html">submission</a>
+				</div>
+			</div>
+		</div>
+		<div id="corpsdepage">
+
+		<h2>Abstract</h2>
+		<p>
+			The proposed SAÉ consists in writing a program in C language 
+			allowing to generate statistics on the connections of a web server. 
+			The program will have three types of interfaces: by default, 
+			an interface for the web and, depending on the call options, 
+			a graphical interface and a text interface. 
+		</p>
+		<p>
+			You will have to:
+			<ol>
+				<li> 
+				  Write a program to process log files of an apache server offering 
+					three interface modes (two graphical modes allowing to visualize 
+					the statistics in the form of histograms and a text mode).
+				</li>
+				<li> 
+				 	Set up a demonstration model to test the program in real conditions 
+					of use.
+				</li>
+			</ol
+		</p> 
+		<h2>Tools</h2>
+		<p>
+		To realize this SAÉ you will work under Linux using exclusively the virtual machine that you will find on the eCampus space SAE prog_(RT1SA05), file <code>SAE15_Debian11_64bits.ova</code>. 
+		
+To realize this SAÉ you will work under Linux using exclusively the virtual machine that you will
+find on the eCampus space SAE prog_(RT1SA05), file <code>SAE15_Debian11_64bits.ova</code> or if you
+are running an ARM architecture (typically on Apple Silicon based Macintosh)
+<code>SAE15_Debian11_ARM64bits.ova</code>
+		</p>
+<p>
+If you have not already done so, install VirtualBox on your host machine. The provided virtual machine is small enough to fit on a 4GB USB stick. Download it, copy it to a directory on your host machine where you have write access. Then in Virtual Box, proceed as follow: File menu > Import appliance > select the file <code>SAE15_Debian11_64bits.ova</code>.
+</p>
+<p>
+The Apache web server is already installed and configured to accept CGI. The Apache configurations are standard: the root of the site is <code>/var/www/html/</code>, the CGI directory is <code>/usr/lib/cgi-bin/</code> (to write access to these two directories you will have to use the sudo command).</p>
+
+In the same location on eCampus, you will find the files <code>RT1SA05-2025.tgz</code> and
+<code>RT1SA05-2025-ARM.tgz</code>. Download the one corresponding to your architecture from the
+virtual machine, retrieve this file (it is usually downloaded in the ~/Téléchargement
+directory) and place it in /home/etudiant. Then, open a command terminal and do:
+			<div class="bash"><code>
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~</span>$ tar xvf RT1SA05-2025.tgz  <br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~</span>$ cd RT1SA05/ <br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~/RT1SA05</span>$ make install<br />
+			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~/RT1SA05</span>$ firefox "http://127.0.0.1/index.html"<br />
+			</code></div> 
+		</p>
+		<p>
+		Thus, you are ready to work. A sample code can be found in the directory <code>/home/etudiant/RT1SA05/src/</code> 
+		but the <code>Makefile</code> to compile and install the program is not provided.  
+		</p>
+		<h2>Example of a realization</h2>
+			<p>
+			   The figure below visualizes the execution of the program <code>/usr/lib/cgi-bin/versiondynamique</code> (you do not have the source code of this program). Here, it is used in its default version (<i>ie.</i> the web interface): 
+			  <center>
+			  <div class="figure">
+				<iframe src="../cgi-bin/versiondynamique" width=430 height=350>
+					IFRAME tags do not work with this browser.
+				</iframe>
+				<div class="legende">
+					Figure 1: Connection statistics (web display).
+				</div>
+			  </div>
+			  </center>
+		  </p>
+			<p> 
+			   The figure below shows a screen shot of the same program, using its graphical interface, 
+		while it is launched with its <code>-gr</code> option. Note that you are not asked to view this image <i>via</i> the web interface:
+			  <center>
+			  <div class="figure">
+					 <img src="img/ecran.bmp" width=430 height=350 /> 
+				<div class="legende">
+				 Figure 2: Connection statistics (graphic display).
+				</div>
+			  </div>
+			  </center>
+		  </p>
+		  <p> 
+			   The figure below shows a screen shot of the same program, using its textual interface, while it is launched with its <code>-txt</code> option. Note that you are not asked to view this image <i>via</i> the web interface:
+		  </p>
+		<center>
+		<div class="figure">
+		 <iframe src="../cgi-bin/versiondynamique-txt" width=400 height=250>
+			IFRAME tags do not work with this browser.
+		 </iframe>
+		 <div class="legende">
+			Figure 3: Connection statistics (text display).
+		 </div>
+		</div>
+		</center>
+	  
+		</div> <!-- FIN du corpsdepage -->
+		
+		<div id="modif">Last update: Nov 3th, 2025</div>
+		<div id="piedpage">
+			<div class="binome">
+				<a href="mailto:Etienne.Huot@uvsq.fr">E. Huot</a>
+			</div>
+		</div>
+	</div>
+	<!-- FIN du conteneurgal -->
+</body>
+</html>
