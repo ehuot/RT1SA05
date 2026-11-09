@@ -102,20 +102,36 @@ ul, ol {
 
 /* --- CODE SOURCE ET TERMINAL --- */
 div.example, div.bash, div.exampleexec {
-    background-color: #f8f8f8;
-    border: 1px solid #cccccc;
-    padding: 10pt;
-    margin: 12pt 0;
-    font-family: Consolas, Menlo, 'Lucida Sans Unicode', sans-serif monospace; /* Consolas exigé */
-    font-size: 9.5pt;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+    background-color: #f8f8f8 !important;
+    border: 1px solid #cccccc !important;
+    padding: 10pt !important;
+    /* Écrase les marges de 200px inscrites "en dur" dans le HTML */
+    margin: 12pt 0 !important; 
     page-break-inside: avoid;
 }
 
-/* On laisse WeasyPrint utiliser les couleurs de syntaxe définies dans votre HTML */
+/* Réduction de l'interligne pour un aspect "console" homogène */
+div.example p, div.bash p, div.bash code, div.example code, div.exampleexec code {
+    line-height: 1.2;
+}
+
+/* On repasse en mode normal pour ignorer les tabulations du code source HTML. 
+   Vos balises <br /> dans le bash feront les sauts de ligne, et les longs logs 
+   de div.example s'adapteront naturellement à la largeur de la page. */
+div.bash code, div.example code, div.example p, div.bash p {
+    white-space: normal !important;
+    word-wrap: break-word;
+}
+
+/* Pour le code C (<pre>) et la sortie texte (.exampleexec), on conserve les espaces 
+   littéraux de la console, mais on autorise un retour à la ligne si elle déborde (pre-wrap). */
+pre, div.exampleexec {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+}
+
 code, pre {
-    font-family: Consolas, monospace;
+    font-family: Consolas, "Courier New", monospace;
     font-size: 9.5pt;
 }
 
