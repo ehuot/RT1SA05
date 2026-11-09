@@ -2,6 +2,7 @@
 @import url('bandeau.css');
 @import url('cv.css');
 
+
 a {
 	color: #5F8000; 
 	text-decoration: none;
@@ -105,7 +106,7 @@ hr {
 	height: 95px;
 	color: #FF8000;
 	font-family: Arial, sans-serif;
-	background: url(img/logoRT.jpg) no-repeat; 
+	background: url(../img/logoRT.jpg) no-repeat; 
 }
 
 
@@ -256,4 +257,8 @@ div.bash p {
 div.bash p, div.bash pre, div.bash table {
     padding: 0;
     margin: 0;
+}
+
+.print-only {
+	display: none !important;
 }

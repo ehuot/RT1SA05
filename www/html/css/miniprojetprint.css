@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+
 body { /* Modifications : la couleur de fond de page - la police - l'unité utilisée pour la taille de la police  */
   background-color :#fff;
   font-family :Serif;
@@ -81,3 +83,9 @@ a {
 	 
 
 
+.web-only { 
+    display: none !important; 
+}
+.print-only { 
+    display: block !important; 
+}

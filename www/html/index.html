@@ -91,14 +91,21 @@ directory) and place it in /home/etudiant. Then, open a command terminal and do:
 			<p>
 			   The figure below visualizes the execution of the program <code>/usr/lib/cgi-bin/versiondynamique</code> (you do not have the source code of this program). Here, it is used in its default version (<i>ie.</i> the web interface): 
 			  <center>
-			  <div class="figure">
-				<iframe src="../cgi-bin/versiondynamique" width=430 height=350>
-					IFRAME tags do not work with this browser.
-				</iframe>
-				<div class="legende">
-					Figure 1: Connection statistics (web display).
+			  	<div class="figure">
+					<!-- Visible uniquement dans le navigateur web -->
+					<div class="web-only">
+						<iframe src="../cgi-bin/versiondynamique" width="430" height="350"></iframe>
+					</div>
+					
+					<!-- Visible uniquement dans le PDF généré -->
+					<div class="print-only">
+						<img src="img/capture_web_dynamique.png" width="430" height="350" />
+					</div>
+					
+					<div class="legende">
+						Figure 1: Connection statistics (web display).
+					</div>
 				</div>
-			  </div>
 			  </center>
 		  </p>
 			<p> 
@@ -117,14 +124,21 @@ directory) and place it in /home/etudiant. Then, open a command terminal and do:
 			   The figure below shows a screen shot of the same program, using its textual interface, while it is launched with its <code>-txt</code> option. Note that you are not asked to view this image <i>via</i> the web interface:
 		  </p>
 		<center>
-		<div class="figure">
-		 <iframe src="../cgi-bin/versiondynamique-txt" width=400 height=250>
-			IFRAME tags do not work with this browser.
-		 </iframe>
-		 <div class="legende">
-			Figure 3: Connection statistics (text display).
-		 </div>
-		</div>
+			<div class="figure">
+				<!-- Visible uniquement dans le navigateur web -->
+				<div class="web-only">
+					<iframe src="../cgi-bin/versiondynamique-txt" width="400" height="250"></iframe>
+				</div>
+				
+				<!-- Visible uniquement dans le PDF généré -->
+				<div class="print-only">
+					<img src="img/capture_web_dynamique-txt.png" width="400" height="250" />
+				</div>
+				
+				<div class="legende">
+					Figure 1: Connection statistics (text display).
+				</div>
+			</div>
 		</center>
 	  
 		</div> <!-- FIN du corpsdepage -->
