@@ -54,7 +54,7 @@ install-html:
 
 pdf:
 	@if ! dpkg -s  weasyprint > /dev/null 2>&1; then \
-		@sudo apt install weasyprint
+		@sudo apt install weasyprint; \
 	fi
 	weasyprint www/html/index.html 1.pdf
 	weasyprint www/html/sujet.html 2.pdf
