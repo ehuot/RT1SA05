@@ -73,15 +73,18 @@
 			for VMWare Workstation or VMWare Fusion on an Intel Macintosh, 
 			<code>VirtualDebian13_ARM_OVF.zip</code> if you
 			are running an ARM architecture (typically on Apple Silicon based Macintosh).
+		</p
+
+		<p>
+		On this VM the Apache web server is already installed and configured to accept CGI. Other needed 
+		tools will be installed <it>via</it> the provided <code>Makefile</code>.
+		The Apache configurations are standard: the root of the site is <code>/var/www/html/</code>, 
+		the CGI directory is <code>/usr/lib/cgi-bin/</code> (to write access to these two 
+		directories you will have to use the <code>sudo</code> command).
 		</p>
 
-<p>
-The Apache web server is already installed and configured to accept CGI. The Apache configurations are standard: the root of the site is <code>/var/www/html/</code>, the CGI directory is <code>/usr/lib/cgi-bin/</code> (to write access to these two directories you will have to use the sudo command).</p>
-
-In the same location on eCampus, you will find the files <code>RT1SA05-2025.tgz</code> and
-<code>RT1SA05-2025-ARM.tgz</code>. Download the one corresponding to your architecture from the
-virtual machine, retrieve this file (it is usually downloaded in the ~/Téléchargement
-directory) and place it in /home/etudiant. Then, open a command terminal and do:
+		<p>
+		Run the Virtual Machine, log into it (password: <code>tplinux</code>), open a terminal and follow:
 			<div class="bash"><code>
 			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~</span>$ sudo apt install git <br />
 			<span style="color:#21AE00;font-weight:bold;">etudiant@virtualdebian:</span><span style="color:blue">~</span>$ git clone http://github.com/ehuot/RT1SA05   <br />
