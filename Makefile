@@ -28,6 +28,10 @@ install-dependencies:
 	fi
 
 install-apache-config:
+	@if ! dpkg -s apache2 > /dev/null 2>&1; then \
+		@echo "apache n'est pas installé, installons-le"; \
+		sudo apt install -y apache2 ; \
+	fi
 	@if [ ! -f /etc/apache2/conf-available/servername.conf ]; then \
 		echo "ServerName sae1.05" | sudo tee /etc/apache2/conf-available/servername.conf > /dev/null; \
 		sudo a2enconf servername > /dev/null; \
