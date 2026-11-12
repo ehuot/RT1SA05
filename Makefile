@@ -29,7 +29,7 @@ install-dependencies:
 
 install-apache-config:
 	@if ! dpkg -s apache2 > /dev/null 2>&1; then \
-		@echo "apache n'est pas installé, installons-le"; \
+		echo "apache n'est pas installé, installons-le"; \
 		sudo apt install -y apache2 ; \
 	fi
 	@if [ ! -f /etc/apache2/conf-available/servername.conf ]; then \
@@ -58,7 +58,7 @@ install-html:
 
 pdf:
 	@if ! dpkg -s  weasyprint > /dev/null 2>&1; then \
-		@sudo apt install weasyprint; \
+		sudo apt install -y weasyprint; \
 	fi
 	weasyprint www/html/index.html 1.pdf
 	weasyprint www/html/sujet.html 2.pdf
