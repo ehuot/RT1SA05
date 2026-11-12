@@ -20,6 +20,12 @@ install: install-html install-cgi install-dependencies install-apache-config
 	@sudo chmod a+rx $(LOGDIR) 
 	@sudo chmod a+r $(LOGDIR)/access.log 
 
+install-apache2: 
+	@if ! dpkg -s apache2 > /dev/null 2>&1; then \
+		echo "apache n'est pas installé, installons-le"; \
+		sudo apt install -y apache2 ; \
+	fi
+
 install-dependencies: 
 	@if ! dpkg -s libsdl1.2debian libsdl1.2-dev libsdl-ttf2.0-dev libsdl-ttf2.0-0 fonts-freefont-ttf > /dev/null 2>&1; then \
 		echo "Installation des dépendances manquantes..."; \
@@ -27,11 +33,7 @@ install-dependencies:
 		sudo apt install -y libsdl1.2debian libsdl1.2-dev libsdl-ttf2.0-dev libsdl-ttf2.0-0 fonts-freefont-ttf; \
 	fi
 
-install-apache-config:
-	@if ! dpkg -s apache2 > /dev/null 2>&1; then \
-		echo "apache n'est pas installé, installons-le"; \
-		sudo apt install -y apache2 ; \
-	fi
+install-apache-config: install-apache2 install-cgi
 	@if [ ! -f /etc/apache2/conf-available/servername.conf ]; then \
 		echo "ServerName sae1.05" | sudo tee /etc/apache2/conf-available/servername.conf > /dev/null; \
 		sudo a2enconf servername > /dev/null; \
@@ -42,13 +44,13 @@ install-apache-config:
 		sudo systemctl restart apache2; \
 	fi
 
-install-cgi:
+install-cgi: install-apache2 
 	@echo "Installation des programmes de référence ($(ARCH_DIR)) et fichiers textes dans $(CGIDIR)..."
 	@sudo cp bin/aecrire.html bin/versiondynamique-txt $(CGIDIR)
 	@sudo cp bin/$(ARCH_DIR)/versionstatique $(CGIDIR)
 	@sudo cp bin/$(ARCH_DIR)/versiondynamique $(CGIDIR)
 
-install-html:
+install-html: install-apache2
 	@echo "Déploiement des fichiers web de la SAÉ..." 
 	@sudo mkdir -p $(HTMLDIR)
 	@sudo cp -a www/html/* $(HTMLDIR)/
