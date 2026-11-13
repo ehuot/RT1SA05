@@ -19,9 +19,9 @@
 #bandeautitre {
    position: absolute;
    padding: none;
-   top: 15px; /* Ajusté en pixels pour plus de précision */
+   top: 35px; /* Ajusté en pixels pour plus de précision */
    left: 20px;
-   width: calc(100% - 260px); /* Laisse de la place au logo à droite */
+    width: 65%;
    color: #ffffff;
    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Ajoute une ombre pour rendre le texte très lisible sur l'image */
    font-family: Arial, serif;
@@ -39,8 +39,8 @@
   top: 10px;
   right: 20px; /* Aligné à droite */
   left: auto; /* Annule le placement fixe à 500pt qui posait problème */
-  width: 140px; /* Taille plus adaptée à la nouvelle hauteur */
-  height: 140px;
+  width: 200px; /* Taille plus adaptée à la nouvelle hauteur */
+  height: 160px;
 }
 
 
